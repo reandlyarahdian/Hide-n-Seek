@@ -2,11 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 using TMPro;
 
 public class UIManager : MonoBehaviour
 {
     [SerializeField]
+    private GameObject pointPanel;
     private List<TextMeshProUGUI> text = new List<TextMeshProUGUI>();
     [SerializeField]
     private GameObject menu;
@@ -16,10 +18,12 @@ public class UIManager : MonoBehaviour
     private GameObject Leaderboard;
     [SerializeField]
     private TextMeshProUGUI Points;
+    [SerializeField]
+    private TextMeshProUGUI Timer;
 
     private void Awake()
     {
-        TextMeshProUGUI[] array = GetComponentsInChildren<TextMeshProUGUI>();
+        TextMeshProUGUI[] array = pointPanel.GetComponentsInChildren<TextMeshProUGUI>();
         for (int i = 0; i < array.Length; i++)
         {
             text.Add(array[i]);
@@ -40,12 +44,12 @@ public class UIManager : MonoBehaviour
         text[index].text = $"Player {ID} {Point}";
     }
 
-    public void TimerText(int index, float timer)
+    public void TimerText(float timer)
     {
         float minutes = Mathf.FloorToInt(timer / 60);
         float seconds = Mathf.FloorToInt(timer % 60);
 
-        text[index].text = string.Format("{0:00}:{1:00}", minutes, seconds);
+        Timer.text = string.Format("{0:00}:{1:00}", minutes, seconds);
     }
 
     public void EndObj(bool isActive)
@@ -56,5 +60,16 @@ public class UIManager : MonoBehaviour
     public void MenuObj(bool isActive)
     {
         menu.SetActive(isActive);
+    }
+
+    public void Menu()
+    {
+        SceneManager.LoadScene("Menu");
+    }
+
+    public void Paused()
+    {
+        GameManager.Instance.isPaused = !GameManager.Instance.isPaused;
+        GameManager.Instance.PauseMenu(GameManager.Instance.isPaused);
     }
 }

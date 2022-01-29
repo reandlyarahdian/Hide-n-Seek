@@ -5,6 +5,9 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "AI/Decision/Chased")]
 public class ChasedDecision : Decide
 {
+    public LayerMask mask;
+    public float radius;
+
     public override bool Decided(EnemyMovement movement)
     {
         return see(movement);
@@ -12,25 +15,16 @@ public class ChasedDecision : Decide
 
     private bool see(EnemyMovement movement)
     {
-        if (movement.Target != null)
+        if (movement.Hide != null)
         {
-            if (Vector3.Distance(movement.Target.transform.position, movement.transform.position) < 3.5f)
+            if (Vector3.Distance(movement.Hide.transform.position, movement.transform.position) < radius)
             {
-                if (Physics.Raycast(movement.transform.position, Vector3.back, out RaycastHit hit, 3.5f))
+                foreach(Collider col in Physics.OverlapSphere(movement.transform.position, radius, mask, QueryTriggerInteraction.Collide))
                 {
-                    return true;
-                }
-                else if (Physics.Raycast(movement.transform.position, Vector3.forward, out RaycastHit hit1, 3.5f))
-                {
-                    return true;
-                }
-                else if (Physics.Raycast(movement.transform.position, Vector3.right, out RaycastHit hit2, 3.5f))
-                {
-                    return true;
-                }
-                else if (Physics.Raycast(movement.transform.position, Vector3.left, out RaycastHit hit3, 3.5f))
-                {
-                    return true;
+                    if(col.gameObject == movement.Hide.gameObject)
+                    {
+                        return true;
+                    }
                 }
             }
         }

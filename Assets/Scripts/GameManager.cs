@@ -30,7 +30,9 @@ public class GameManager : MonoBehaviour
     GameObject transformEmpty;
     List<EnemyMovement> enemies = new List<EnemyMovement>();
     UIManager manager;
-    bool isPaused = false;
+    [HideInInspector]
+    public bool isPaused = false;
+    bool isEnd = false;
 
     [SerializeField]
     private GameObject enemyChase;
@@ -46,6 +48,7 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         Instance = this;
+        isEnd = false;
         Passer.Instance.Setting();
         manager = FindObjectOfType<UIManager>();
         Spawn(coin, 50f, 200, transform);
@@ -69,7 +72,7 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (Input.GetKeyDown(KeyCode.Escape) && !isEnd)
         {
             isPaused = !isPaused;
             PauseMenu(isPaused);
@@ -130,7 +133,7 @@ public class GameManager : MonoBehaviour
         manager.PointText(ID - 1, ID, Player[ID - 1]);
     }
 
-    private void PauseMenu(bool isPaused)
+    public void PauseMenu(bool isPaused)
     {
         if (isPaused)
         {
@@ -142,17 +145,6 @@ public class GameManager : MonoBehaviour
             manager.MenuObj(isPaused);
             Time.timeScale = 1f;
         }
-    }
-
-    public void Return()
-    {
-        isPaused = !isPaused;
-        PauseMenu(isPaused);
-    }
-
-    public void Menu()
-    {
-        SceneManager.LoadScene("Menu");
     }
     
     private void SortingArray(int[] vs)
@@ -175,10 +167,11 @@ public class GameManager : MonoBehaviour
             if(seconds >= 0)
             {
                 seconds -= Time.deltaTime;
-                manager.TimerText(5, seconds);
+                manager.TimerText(seconds);
             }
             else
             {
+                isEnd = true;
                 SortingArray(Player);
                 manager.EndObj(true);
                 manager.LeaderBoard(ID, HP);

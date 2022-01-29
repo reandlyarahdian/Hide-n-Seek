@@ -9,8 +9,6 @@ public class See : MonoBehaviour
     private float sightRadius = 15f;
     private UnityEvent unityEvent;
     private Collider[] colliders;
-    [SerializeField]
-    private GameObject Player;
 
     private void Update()
     {
@@ -23,10 +21,10 @@ public class See : MonoBehaviour
 
         foreach (Collider col in colliders)
         {
-            if (col.gameObject.CompareTag("Seek") && SeePlayer(col.transform, angleSight, viewDistance))
+            if (col.gameObject.CompareTag("Seek") && this.gameObject.CompareTag("Hide") && SeePlayer(col.transform, angleSight, viewDistance))
             {
                 GameManager.Instance.PointAdder(1, 100);
-                Player.SetActive(false);
+                this.gameObject.SetActive(false);
             }
         }
     }

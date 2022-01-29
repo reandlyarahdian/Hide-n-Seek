@@ -12,3 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0444be7d4e5daee4f83e3c92fc5ba844, type: 3}
   m_Name: New Chased Decision
   m_EditorClassIdentifier: 
+  mask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  radius: 3.5

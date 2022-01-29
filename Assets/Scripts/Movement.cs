@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Cinemachine;
+using UnityStandardAssets.CrossPlatformInput;
 
 public class Movement : MonoBehaviour
 {
@@ -9,6 +10,8 @@ public class Movement : MonoBehaviour
     private float speed = 5f, turnSpeed = 2f, SmoothTurn =  0.01f;
     [SerializeField]
     private Transform cam;
+    [SerializeField]
+    private bool isSeek;
 
     Rigidbody rb;
 
@@ -22,6 +25,10 @@ public class Movement : MonoBehaviour
         CinemachineVirtualCamera freeLook = FindObjectOfType<CinemachineVirtualCamera>();
         freeLook.Follow = transform;
         freeLook.LookAt = transform;
+        if (isSeek)
+        {
+            Seek(freeLook);
+        }
         cam = Camera.main.transform;
     }
 
@@ -32,7 +39,7 @@ public class Movement : MonoBehaviour
 
     private void Update()
     {
-        Vector3 input = new Vector3(Input.GetAxis("Vertical"), 0, Input.GetAxis("Horizontal")).normalized;
+        Vector3 input = new Vector3(CrossPlatformInputManager.GetAxis("Vertical"), 0, CrossPlatformInputManager.GetAxis("Horizontal")).normalized;
         float InputMagintude = input.magnitude;
         smoothInputMagnitude = Mathf.SmoothDamp(smoothInputMagnitude, InputMagintude, ref refVelocity, SmoothTurn);
 
@@ -45,6 +52,20 @@ public class Movement : MonoBehaviour
     {
         Rotation(angle);
         Move(velocity);
+    }
+
+    void Seek(CinemachineVirtualCamera virtualCamera)
+    {
+        virtualCamera.AddCinemachineComponent<CinemachineTransposer>().m_FollowOffset = new Vector3(0, 0.5f, 0);
+        CinemachinePOV cinemachine = virtualCamera.AddCinemachineComponent<CinemachinePOV>();
+        cinemachine.m_HorizontalRecentering.m_RecenteringTime = 0.5f;
+        cinemachine.m_HorizontalRecentering.m_enabled = true;
+        cinemachine.m_HorizontalRecentering.m_WaitTime = 0.5f;
+        cinemachine.m_VerticalRecentering.m_RecenteringTime = 0.5f;
+        cinemachine.m_VerticalRecentering.m_enabled = true;
+        cinemachine.m_VerticalRecentering.m_WaitTime = 0.5f;
+        cinemachine.m_VerticalAxis.m_InputAxisName = "Mouse Y";
+        cinemachine.m_HorizontalAxis.m_InputAxisName = "Mouse X";
     }
 
     void AngelCalc(Vector3 input, float InputMagnitude)
