@@ -8,7 +8,7 @@ public class MenuManager : MonoBehaviour
     public void Mode(int i)
     {
         Passer.Instance.Mode(i);
-        SceneManager.LoadScene("Game");
+        SceneManager.LoadScene(1);
         Time.timeScale = 1f;
     }
 

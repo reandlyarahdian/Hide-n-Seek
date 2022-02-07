@@ -33,7 +33,10 @@ public class GameManager : MonoBehaviour
     [HideInInspector]
     public bool isPaused = false;
     bool isEnd = false;
+    MiniMap map;
 
+    [SerializeField]
+    private GameObject Plane;
     [SerializeField]
     private GameObject enemyChase;
     [SerializeField]
@@ -44,6 +47,8 @@ public class GameManager : MonoBehaviour
     private GameObject playerHide;
     [SerializeField]
     private GameObject coin;
+    [SerializeField]
+    private GameObject obstacle;
 
     private void Start()
     {
@@ -51,7 +56,9 @@ public class GameManager : MonoBehaviour
         isEnd = false;
         Passer.Instance.Setting();
         manager = FindObjectOfType<UIManager>();
-        Spawn(coin, 50f, 200, transform);
+        map = FindObjectOfType<MiniMap>();
+        Spawn(obstacle, 50, 85, Plane.transform);
+        Spawn(coin, 50f, 100, transform);
         Setup();
         foreach(EnemyMovement enemy in FindObjectsOfType<EnemyMovement>())
         {
@@ -110,6 +117,10 @@ public class GameManager : MonoBehaviour
             NavMeshHit hit;
             NavMesh.SamplePosition(randomDirection, out hit, radius, 1);
             GameObject genEnemy = Instantiate(Prefab, new Vector3(hit.position.x, 1f, hit.position.z), Quaternion.identity, parent);
+            if(genEnemy.layer == LayerMask.NameToLayer("Sight"))
+            {
+                map.Player = genEnemy;
+            }
         }
     }
 

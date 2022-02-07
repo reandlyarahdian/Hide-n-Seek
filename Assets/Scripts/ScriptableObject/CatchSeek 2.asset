@@ -10,14 +10,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 879c4b161ead0fc42bdee6dea3755e1c, type: 3}
-  m_Name: Seek 3
+  m_Name: CatchSeek 2
   m_EditorClassIdentifier: 
   acts:
-  - {fileID: 11400000, guid: d1091c13133b4cf42945a49e16db908c, type: 2}
+  - {fileID: 11400000, guid: 76e164063b67eee4abfcf25768bfa353, type: 2}
   transitions:
   - decide: {fileID: 11400000, guid: 9e8fe9c6275777740b18533de46a0e44, type: 2}
     trueS: {fileID: 11400000, guid: 2ba7480289046a840a38834ae2fbaf02, type: 2}
     falseS: {fileID: 11400000}
-  - decide: {fileID: 11400000, guid: c8ce884ecdc53264987044f12ba09f4b, type: 2}
-    trueS: {fileID: 11400000, guid: 1356b7687ddeb6f40907c8f6fe330ee7, type: 2}
+  - decide: {fileID: 11400000, guid: 9e8fe9c6275777740b18533de46a0e44, type: 2}
+    trueS: {fileID: 11400000, guid: b61314a78ceb64d428d371599404fa1c, type: 2}
     falseS: {fileID: 11400000}
+  - decide: {fileID: 11400000, guid: e6342996e733cd04cbfe1feaa4a8e443, type: 2}
+    trueS: {fileID: 11400000}
+    falseS: {fileID: 11400000, guid: b61314a78ceb64d428d371599404fa1c, type: 2}

@@ -10,8 +10,6 @@ public class Movement : MonoBehaviour
     private float speed = 5f, turnSpeed = 2f, SmoothTurn =  0.01f;
     [SerializeField]
     private Transform cam;
-    [SerializeField]
-    private bool isSeek;
 
     Rigidbody rb;
 
@@ -25,10 +23,7 @@ public class Movement : MonoBehaviour
         CinemachineVirtualCamera freeLook = FindObjectOfType<CinemachineVirtualCamera>();
         freeLook.Follow = transform;
         freeLook.LookAt = transform;
-        if (isSeek)
-        {
-            Seek(freeLook);
-        }
+        Look(freeLook);
         cam = Camera.main.transform;
     }
 
@@ -54,7 +49,7 @@ public class Movement : MonoBehaviour
         Move(velocity);
     }
 
-    void Seek(CinemachineVirtualCamera virtualCamera)
+    void Look(CinemachineVirtualCamera virtualCamera)
     {
         virtualCamera.AddCinemachineComponent<CinemachineTransposer>().m_FollowOffset = new Vector3(0, 0.5f, 0);
         CinemachinePOV cinemachine = virtualCamera.AddCinemachineComponent<CinemachinePOV>();
@@ -66,6 +61,7 @@ public class Movement : MonoBehaviour
         cinemachine.m_VerticalRecentering.m_WaitTime = 0.5f;
         cinemachine.m_VerticalAxis.m_InputAxisName = "Mouse Y";
         cinemachine.m_HorizontalAxis.m_InputAxisName = "Mouse X";
+        cinemachine.m_RecenterTarget = CinemachinePOV.RecenterTargetMode.FollowTargetForward;
     }
 
     void AngelCalc(Vector3 input, float InputMagnitude)

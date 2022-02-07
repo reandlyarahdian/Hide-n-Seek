@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 879c4b161ead0fc42bdee6dea3755e1c, type: 3}
-  m_Name: Seek
+  m_Name: FIndHide 3
   m_EditorClassIdentifier: 
   acts:
-  - {fileID: 11400000, guid: fe09453b0b02c3147904bcc7b4ef748a, type: 2}
+  - {fileID: 11400000, guid: 105f0194479418244b6af0f45224c381, type: 2}
   transitions:
-  - decide: {fileID: 11400000, guid: 7648032f35822794ca4ab40151efe015, type: 2}
-    trueS: {fileID: 11400000, guid: 91a84e6faa9a5a24eabb7a45e5122988, type: 2}
+  - decide: {fileID: 11400000, guid: 01679ebd95c99a344aa690802d5d4a1e, type: 2}
+    trueS: {fileID: 11400000, guid: aa6d1e0f471e89945b71ef2ffd1de9c4, type: 2}
     falseS: {fileID: 11400000}

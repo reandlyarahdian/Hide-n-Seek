@@ -5,49 +5,45 @@ using UnityEngine.Events;
 
 public class See : MonoBehaviour
 {
+    private UIManager uI;
     [SerializeField]
-    private float sightRadius = 15f;
-    private UnityEvent unityEvent;
-    private Collider[] colliders;
+    private GameObject game;
+    private SphereCollider sphere;
 
-    private void Update()
+    private void Start()
     {
-        CheckPlayer(unityEvent, 360f, 3f, sightRadius);
+        uI = FindObjectOfType<UIManager>();
+        sphere = GetComponentInChildren<SphereCollider>();
     }
 
-    private void CheckPlayer(UnityEvent @event, float angleSight, float viewDistance, float distance)
+    private void OnTriggerEnter(Collider other)
     {
-        colliders = Physics.OverlapSphere(transform.position, distance);
-
-        foreach (Collider col in colliders)
+        if (other.gameObject.CompareTag("Seek") && this.gameObject.CompareTag("Hide"))
         {
-            if (col.gameObject.CompareTag("Seek") && this.gameObject.CompareTag("Hide") && SeePlayer(col.transform, angleSight, viewDistance))
-            {
-                GameManager.Instance.PointAdder(1, 100);
-                this.gameObject.SetActive(false);
-            }
+            GameManager.Instance.PointAdder(1, 100);
+            this.gameObject.SetActive(false);
+        }
+
+        if (other.gameObject.CompareTag("Hide") && this.gameObject.CompareTag("Seek"))
+        {
+            uI.catchbutton.SetActive(true);
+            game = other.gameObject;
         }
     }
 
-    private bool SeePlayer(Transform Target, float angleSight, float viewDistance)
+    private void OnTriggerExit(Collider other)
     {
-        if (Vector3.Distance(Target.transform.position, transform.position) < viewDistance)
+
+        if (other.gameObject.CompareTag("Hide") && this.gameObject.CompareTag("Seek"))
         {
-            Vector3 dir = (Target.transform.position - transform.position).normalized;
-            float dot = Vector3.Angle(transform.forward, dir);
-            if (dot < angleSight/ 2)
-            {
-                if (Physics.Raycast(transform.position, dir, out RaycastHit hit, viewDistance))
-                {
-                    return true;
-                }
-            }
+            uI.catchbutton.SetActive(false);
+            game = null;
         }
-        return false;
     }
 
-    private void OnDrawGizmos()
+    public void Catch()
     {
-        Gizmos.DrawWireSphere(transform.position, 12f);
+        GameManager.Instance.PointAdder(1, 100);
+        game.SetActive(false);
     }
 }
