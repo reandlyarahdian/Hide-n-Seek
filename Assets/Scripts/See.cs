@@ -5,14 +5,14 @@ using UnityEngine.Events;
 
 public class See : MonoBehaviour
 {
-    private UIManager uI;
     [SerializeField]
     private GameObject game;
     private SphereCollider sphere;
+    [SerializeField]
+    private Canvas canvas;
 
     private void Start()
     {
-        uI = FindObjectOfType<UIManager>();
         sphere = GetComponentInChildren<SphereCollider>();
     }
 
@@ -26,7 +26,7 @@ public class See : MonoBehaviour
 
         if (other.gameObject.CompareTag("Hide") && this.gameObject.CompareTag("Seek"))
         {
-            uI.catchbutton.SetActive(true);
+            canvas.gameObject.SetActive(true);
             game = other.gameObject;
         }
     }
@@ -36,7 +36,7 @@ public class See : MonoBehaviour
 
         if (other.gameObject.CompareTag("Hide") && this.gameObject.CompareTag("Seek"))
         {
-            uI.catchbutton.SetActive(false);
+            canvas.gameObject.SetActive(false);
             game = null;
         }
     }

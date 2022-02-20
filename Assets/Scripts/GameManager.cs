@@ -13,6 +13,12 @@ public enum Mode
     PlayerHide
 }
 
+public enum Team
+{
+    TeamA,
+    TeamB
+}
+
 public class GameManager : MonoBehaviour
 {
     [HideInInspector]
@@ -21,9 +27,11 @@ public class GameManager : MonoBehaviour
     public int[] Player = new int[5];
     [HideInInspector]
     public Mode mode;
+    [HideInInspector]
+    public Team team;
 
     public static GameManager Instance;
-    
+
     int[] ID;
     int[] HP;
     int i = 0;
@@ -49,6 +57,14 @@ public class GameManager : MonoBehaviour
     private GameObject coin;
     [SerializeField]
     private GameObject obstacle;
+    [SerializeField]
+    private GameObject A;
+    [SerializeField]
+    private GameObject B;
+    [SerializeField]
+    private GameObject PlayerA;
+    [SerializeField]
+    private GameObject PlayerB;
 
     private void Start()
     {
@@ -58,8 +74,19 @@ public class GameManager : MonoBehaviour
         manager = FindObjectOfType<UIManager>();
         map = FindObjectOfType<MiniMap>();
         Spawn(obstacle, 50, 85, Plane.transform);
-        Spawn(coin, 50f, 100, transform);
-        Setup();
+        if (SceneManager.GetActiveScene().name == "Polisi2an" || SceneManager.GetActiveScene().name == "DelikJepung")
+            Spawn(coin, 50f, 100, transform);
+        if (SceneManager.GetActiveScene().name != "Benteng" || SceneManager.GetActiveScene().name != "Boy2an")
+        {
+            Setup();
+        }
+        else
+            SetupTeam();
+        foreach (iDSetup iD in FindObjectsOfType<iDSetup>())
+        {
+            iD.Setup(i + 1);
+            i++;
+        }
         foreach(EnemyMovement enemy in FindObjectsOfType<EnemyMovement>())
         {
             enemies.Add(enemy);
@@ -69,10 +96,12 @@ public class GameManager : MonoBehaviour
         {
             enemies[i].Setup(true, transforms);
         }
-        foreach(iDSetup iD in FindObjectsOfType<iDSetup>())
+        
+        if(SceneManager.GetActiveScene().name == "Base2an")
         {
-            iD.Setup(i + 1);
-            i++;
+            BasePooling pooling = GetComponent<BasePooling>();
+            StartCoroutine(BaseRandom(pooling, 50f, "Seek"));
+            StartCoroutine(BaseRandom(pooling, 50f, "Hide"));
         }
         StartCoroutine(GameTimer(60f));
     }
@@ -102,6 +131,25 @@ public class GameManager : MonoBehaviour
                 Spawn(enemyHide, 50f, 3, null);
                 Spawn(playerHide, 50f, 1, null);
                 Spawn(enemyChase, 20f, 1, null);
+                break;
+            default:
+                break;
+        }
+    }
+
+    public void SetupTeam()
+    {
+        switch (team)
+        {
+            case Team.TeamA:
+                Spawn(A, 50f, 2, null);
+                Spawn(PlayerA, 50f, 1, null);
+                Spawn(B, 50f, 3, null);
+                break;
+            case Team.TeamB:
+                Spawn(A, 50f, 3, null);
+                Spawn(B, 50f, 2, null);
+                Spawn(PlayerB, 50f, 1, null);
                 break;
             default:
                 break;
@@ -169,6 +217,28 @@ public class GameManager : MonoBehaviour
         List<int> vs3 = sorted.Select(x => x.OriginalIndex).ToList();
         ID = vs3.ToArray();
         HP = vs2.ToArray();
+    }
+
+    private IEnumerator BaseRandom(BasePooling pooling, float radius, string name)
+    {
+        while (true)
+        {
+            for (int i = 0; i < 3; i++)
+            {
+                Vector3 randomDirection = UnityEngine.Random.insideUnitSphere * radius;
+                randomDirection += transform.position;
+                NavMeshHit hit;
+                NavMesh.SamplePosition(randomDirection, out hit, radius, 1);
+                Vector3 pos = new Vector3(hit.position.x, 0.1f, hit.position.z);
+                GameObject baseA = pooling.GetPooledObject(name, pos);
+            }
+            yield return new WaitForSecondsRealtime(20f);
+            for (int i = 0; i < 3; i++)
+            {
+                GameObject baseA = pooling.RemovePooledObject(name);
+            }
+            yield return null;
+        }
     }
 
     private IEnumerator GameTimer(float seconds)

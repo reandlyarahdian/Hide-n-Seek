@@ -21,10 +21,6 @@ public class UIManager : MonoBehaviour
     [SerializeField]
     private TextMeshProUGUI Timer;
 
-    public GameObject catchbutton;
-
-    private See see;
-
     private void Awake()
     {
         TextMeshProUGUI[] array = pointPanel.GetComponentsInChildren<TextMeshProUGUI>();
@@ -32,16 +28,6 @@ public class UIManager : MonoBehaviour
         {
             text.Add(array[i]);
         }
-    }
-
-    private void Start()
-    {
-        see = FindObjectOfType<See>();
-    }
-
-    public void CatchButton()
-    {
-        see.Catch();
     }
 
     public void LeaderBoard(int[] id, int[] points)

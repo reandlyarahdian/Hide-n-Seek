@@ -16,8 +16,9 @@ GameObject:
   - component: {fileID: 5560309472602485838}
   - component: {fileID: 1050513876845241107}
   - component: {fileID: 8045173531090590797}
+  - component: {fileID: -519576793263280283}
   m_Layer: 6
-  m_Name: EnemyHide
+  m_Name: Crime
   m_TagString: Hide
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -153,7 +154,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 49f37fd5c61883240a93facbb873e0d6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  curentS: {fileID: 11400000, guid: d887ca72ab63efb4d8931d78472c0de5, type: 2}
+  curentS: {fileID: 11400000, guid: aa6d1e0f471e89945b71ef2ffd1de9c4, type: 2}
   remainS: {fileID: 0}
   wayPoints: []
   mask:
@@ -180,6 +181,28 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 0
+--- !u!114 &-519576793263280283
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 59088305702122318}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a54b3603b662424ba2ea95b17422a44, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  meshes:
+  - {fileID: 4121705280414216164}
+  - {fileID: 5790347369335110378}
+  - {fileID: 6294938080176875951}
+  material:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  transparent: {fileID: 2100000, guid: 57a91e974abcb9045bf6f852649ef775, type: 2}
+  canvas: {fileID: 0}
 --- !u!1 &962845035809152734
 GameObject:
   m_ObjectHideFlags: 0
