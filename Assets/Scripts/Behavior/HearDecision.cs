@@ -18,7 +18,7 @@ public class HearDecision : Decide
             {
                 Vector3 dir = (movement.Hide.transform.position - movement.transform.position).normalized;
                 float dot = Vector3.Angle(movement.transform.forward, dir);
-                if (dot >= Mathf.Cos(360f))
+                if (dot < 360 /2 )
                 {
                     if (Physics.Raycast(movement.transform.position, dir, out RaycastHit hit, movement.col.radius))
                     {

@@ -19,7 +19,7 @@ GameObject:
   - component: {fileID: 6234492771936406343}
   m_Layer: 8
   m_Name: BoyPlayerB
-  m_TagString: Seek
+  m_TagString: B
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

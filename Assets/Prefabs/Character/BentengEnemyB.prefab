@@ -17,9 +17,10 @@ GameObject:
   - component: {fileID: 1050513876845241107}
   - component: {fileID: 1891399346614927333}
   - component: {fileID: 1254142711486128967}
+  - component: {fileID: 6886358890160340167}
   m_Layer: 6
   m_Name: BentengEnemyB
-  m_TagString: Seek
+  m_TagString: B
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -166,6 +167,7 @@ MonoBehaviour:
   Hide: {fileID: 0}
   col: {fileID: 0}
   colliders: []
+  hiding: {fileID: 0}
   nextWayPoint: 0
   id: 0
 --- !u!114 &1891399346614927333
@@ -203,6 +205,19 @@ MonoBehaviour:
   - {fileID: 0}
   transparent: {fileID: 2100000, guid: 57a91e974abcb9045bf6f852649ef775, type: 2}
   canvas: {fileID: 0}
+--- !u!114 &6886358890160340167
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 59088305702122318}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 89f0919b3524fbc46adf2eb1771cd5e3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  STR: 0
 --- !u!1 &2706925102532288181
 GameObject:
   m_ObjectHideFlags: 0

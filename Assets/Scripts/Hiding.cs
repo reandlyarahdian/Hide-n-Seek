@@ -32,6 +32,17 @@ public class Hiding : MonoBehaviour
         GetPos(posB, "Hide");
     }
 
+    public void Hunted(Material mat)
+    {
+        for(int i = 0; i < meshes.Length; i++)
+        {
+            if(meshes[i] != meshes[1])
+            {
+                meshes[i].material = mat;
+            }
+        }
+    }
+
     private void GetPos(List<Vector3> vectors, string name)
     {
         for (int i = 0; i < 3; i++)

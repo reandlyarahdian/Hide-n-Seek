@@ -7,10 +7,14 @@ public class EnemyMovement : MonoBehaviour
 {
     [SerializeField]
     private State curentS, remainS;
+    [SerializeField]
+    private string EnemyTag;
     
     public List<Transform> wayPoints;
     public LayerMask mask;
 
+    [HideInInspector]
+    public Stamina stamina;
     [HideInInspector]
     public NavMeshAgent agent;
     [HideInInspector]
@@ -24,6 +28,8 @@ public class EnemyMovement : MonoBehaviour
     [HideInInspector]
     public List<Collider> colliders;
     [HideInInspector]
+    public Hiding hiding;
+    [HideInInspector]
     public int nextWayPoint;
     public int id;
 
@@ -35,6 +41,8 @@ public class EnemyMovement : MonoBehaviour
         agent = GetComponent<NavMeshAgent>();
         light = GetComponentInChildren<Light>();
         col = GetComponentInChildren<SphereCollider>();
+        hiding = GetComponent<Hiding>();
+        stamina = GetComponent<Stamina>();
     }
 
     public void Setup(bool active, List<Transform> waypoints)
@@ -59,6 +67,7 @@ public class EnemyMovement : MonoBehaviour
     {
         if(other.CompareTag("Hide")) Target = other.transform;
         if (other.CompareTag("Seek")) Hide = other.transform;
+        if (other.CompareTag(EnemyTag)) Target = other.transform;
     }
 
     private void OnTriggerExit(Collider other)

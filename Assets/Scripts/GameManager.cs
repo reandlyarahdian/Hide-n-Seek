@@ -29,11 +29,14 @@ public class GameManager : MonoBehaviour
     public Mode mode;
     [HideInInspector]
     public Team team;
+    [HideInInspector]
+    public int[] Teams = new int[2];
 
     public static GameManager Instance;
 
     int[] ID;
     int[] HP;
+    int[] TM = new int[2];
     int i = 0;
     GameObject transformEmpty;
     List<EnemyMovement> enemies = new List<EnemyMovement>();
@@ -74,18 +77,32 @@ public class GameManager : MonoBehaviour
         manager = FindObjectOfType<UIManager>();
         map = FindObjectOfType<MiniMap>();
         Spawn(obstacle, 50, 85, Plane.transform);
-        if (SceneManager.GetActiveScene().name == "Polisi2an" || SceneManager.GetActiveScene().name == "DelikJepung")
-            Spawn(coin, 50f, 100, transform);
-        if (SceneManager.GetActiveScene().name != "Benteng" || SceneManager.GetActiveScene().name != "Boy2an")
-        {
-            Setup();
-        }
-        else
+        
+        if (SceneManager.GetActiveScene().name == "Benteng" || SceneManager.GetActiveScene().name == "Boy2an")
             SetupTeam();
+        else
+            Setup();
         foreach (iDSetup iD in FindObjectsOfType<iDSetup>())
         {
             iD.Setup(i + 1);
+            int team = iD.TeamSetup();
+            if (team == 1) TM[0] = team;
+            if (team == 2) TM[1] = team;
             i++;
+        }
+        if (SceneManager.GetActiveScene().name == "Polisi2an" || 
+            SceneManager.GetActiveScene().name == "DelikJepung" || 
+            SceneManager.GetActiveScene().name == "Base2an")
+        { 
+            Spawn(coin, 50f, 100, transform);
+            manager.SetupUI();
+        }else if(SceneManager.GetActiveScene().name == "Hunting")
+        {
+            manager.SetupUI();
+        }
+        else if(SceneManager.GetActiveScene().name == "Benteng" || SceneManager.GetActiveScene().name == "Boy2an")
+        {
+            manager.SetupUI_Team(TM);
         }
         foreach(EnemyMovement enemy in FindObjectsOfType<EnemyMovement>())
         {
@@ -190,6 +207,12 @@ public class GameManager : MonoBehaviour
     {
         Player[ID - 1] += Points;
         manager.PointText(ID - 1, ID, Player[ID - 1]);
+    }
+
+    public void PointTeamAdder(int TM, int Points)
+    {
+        Teams[TM] += Points;
+        manager.PointTeamText(TM - 1, TM, Teams[TM - 1]);
     }
 
     public void PauseMenu(bool isPaused)

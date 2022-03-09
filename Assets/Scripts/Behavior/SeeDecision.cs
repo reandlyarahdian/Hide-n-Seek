@@ -16,9 +16,9 @@ public class SeeDecision : Decide
         {
             if (Vector3.Distance(movement.Target.transform.position, movement.transform.position) < movement.light.range)
             {
-                Vector3 dir = (movement.Target.transform.position - movement.transform.position).normalized;
+                Vector3 dir = (movement.Target.transform.position - movement.transform.position);
                 float dot = Vector3.Angle(movement.transform.forward, dir);
-                if (dot >= Mathf.Cos(movement.light.range))
+                if (dot < movement.light.spotAngle /2)
                 {
                     if (Physics.Raycast(movement.transform.position, dir, out RaycastHit hit, movement.light.range))
                     {

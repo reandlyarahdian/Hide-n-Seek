@@ -156,6 +156,7 @@ MonoBehaviour:
   transforms: []
   Player: 0000000000000000000000000000000000000000
   mode: 0
+  team: 0
   isPaused: 0
   Plane: {fileID: 1442068714}
   enemyChase: {fileID: 59088305702122318, guid: a6bbd561c975b964d99ff6d4068dbbea, type: 3}
@@ -164,6 +165,10 @@ MonoBehaviour:
   playerHide: {fileID: 59088305702122318, guid: 42a04289735595f45bb0ddd498dd059a, type: 3}
   coin: {fileID: 7821440017915566934, guid: d1851d1573d538e47bbb0a8affc710da, type: 3}
   obstacle: {fileID: 4069900854027579932, guid: d1c154db3ccc0eb439f7d15a5523a385, type: 3}
+  A: {fileID: 0}
+  B: {fileID: 0}
+  PlayerA: {fileID: 0}
+  PlayerB: {fileID: 0}
 --- !u!4 &8871765
 Transform:
   m_ObjectHideFlags: 0
@@ -464,7 +469,6 @@ MonoBehaviour:
   Leaderboard: {fileID: 156617663}
   Points: {fileID: 4752060329954695096, guid: 338f68eb042ee8c46a29266358b4669e, type: 3}
   Timer: {fileID: 1099773550}
-  catchbutton: {fileID: 1673295585}
 --- !u!114 &215137972
 MonoBehaviour:
   m_ObjectHideFlags: 0

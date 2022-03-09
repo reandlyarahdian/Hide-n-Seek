@@ -21,13 +21,29 @@ public class UIManager : MonoBehaviour
     [SerializeField]
     private TextMeshProUGUI Timer;
 
-    private void Awake()
+    public void SetupUI()
     {
+        pointPanel.SetActive(true);
         TextMeshProUGUI[] array = pointPanel.GetComponentsInChildren<TextMeshProUGUI>();
         for (int i = 0; i < array.Length; i++)
         {
             text.Add(array[i]);
         }
+    }
+
+    public void SetupUI_Team(int[] id)
+    {
+        pointPanel.SetActive(true);
+        for(int i = 0; i < GameManager.Instance.Teams.Length; i++)
+        {
+            TextMeshProUGUI textMesh = Instantiate(Points, pointPanel.transform);
+            textMesh.text = $"Team {id[i]}: 0 Points";
+        }
+    }
+
+    public void PointTeamText(int index, int Team, int Point)
+    {
+        text[index].text = $"Team {Team}: {Point} Points";
     }
 
     public void LeaderBoard(int[] id, int[] points)

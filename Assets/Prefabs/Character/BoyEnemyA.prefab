@@ -19,7 +19,7 @@ GameObject:
   - component: {fileID: 1254142711486128967}
   m_Layer: 6
   m_Name: BoyEnemyA
-  m_TagString: Seek
+  m_TagString: A
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -166,6 +166,7 @@ MonoBehaviour:
   Hide: {fileID: 0}
   col: {fileID: 0}
   colliders: []
+  hiding: {fileID: 0}
   nextWayPoint: 0
   id: 0
 --- !u!114 &1891399346614927333

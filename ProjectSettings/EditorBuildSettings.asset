@@ -9,6 +9,12 @@ EditorBuildSettings:
     path: Assets/Scenes/Menu.unity
     guid: e732e10dfb56b224490afeaf3fd7b96e
   - enabled: 1
+    path: Assets/Scenes/Benteng.unity
+    guid: 2ffe1ff5e0aaa7c42966eab5095096b4
+  - enabled: 1
+    path: Assets/Scenes/Boy2an.unity
+    guid: 7e35ec6f36cd1a9489482ac8b8974d6e
+  - enabled: 1
     path: Assets/Scenes/Base2an.unity
     guid: 84969adaa7aff8441bccbd5a62d4c79b
   - enabled: 1
@@ -17,4 +23,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/DelikJepung.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
+  - enabled: 1
+    path: Assets/Scenes/Hunter.unity
+    guid: 4a8f3d83ac3ebea49952cb063158eea1
+  - enabled: 1
+    path: Assets/Scenes/Hunting.unity
+    guid: 1b564d8fb6dada94abf9b7b893071cf7
   m_configObjects: {}

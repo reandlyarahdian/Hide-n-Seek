@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 879c4b161ead0fc42bdee6dea3755e1c, type: 3}
+  m_Name: Hunting 5
+  m_EditorClassIdentifier: 
+  acts:
+  - {fileID: 11400000, guid: c949ba31e5a71614892bf7d0a6e711a4, type: 2}
+  transitions:
+  - decide: {fileID: 11400000, guid: 9e8fe9c6275777740b18533de46a0e44, type: 2}
+    trueS: {fileID: 11400000, guid: 986d8593928c4274db8a5ab8cb358fcb, type: 2}
+    falseS: {fileID: 11400000}
