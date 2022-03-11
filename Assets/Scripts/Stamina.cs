@@ -6,26 +6,33 @@ using UnityEngine;
 public class Stamina : MonoBehaviour
 {
     private Coroutine StamCor;
-    public int STR;
+    public float STR;
+    [SerializeField]
+    float STR0;
+
+    private void Start()
+    {
+        STR0 = UnityEngine.Random.Range(1, STR);
+        StamCor = StartCoroutine(StaminaTime());
+    }
 
     public void StaminaSetup()
     {
         if(StamCor != null)
         {
             StopCoroutine(StamCor);
+            STR0 = 10f;
+            StamCor = StartCoroutine(StaminaTime());
         }
-
-        StamCor = StartCoroutine(StaminaTime(5f));
+        
     }
 
-    IEnumerator StaminaTime(float timer)
+    IEnumerator StaminaTime()
     {
         while (true)
         {
-            timer  -= Time.deltaTime;
-            STR = (int)timer;
-
-            if(timer <= 0)
+            STR0 -= Time.deltaTime;
+            if(STR0 <= 0)
             {
                 break;
             }

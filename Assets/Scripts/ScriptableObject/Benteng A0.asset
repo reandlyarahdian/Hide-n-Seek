@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 879c4b161ead0fc42bdee6dea3755e1c, type: 3}
+  m_Name: Benteng A0
+  m_EditorClassIdentifier: 
+  acts:
+  - {fileID: 11400000, guid: d6b2d8438f272a84a931a8feb731c67d, type: 2}
+  transitions:
+  - decide: {fileID: 11400000, guid: 52c072a17ca184446b9ea368c509923f, type: 2}
+    trueS: {fileID: 11400000, guid: 33193fcb620bffc4a94e809e9254f31e, type: 2}
+    falseS: {fileID: 11400000}
+  - decide: {fileID: 11400000, guid: 7648032f35822794ca4ab40151efe015, type: 2}
+    trueS: {fileID: 11400000, guid: a03ce6e72ac7e6c41b8e0ec03f318332, type: 2}
+    falseS: {fileID: 11400000}

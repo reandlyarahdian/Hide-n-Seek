@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 879c4b161ead0fc42bdee6dea3755e1c, type: 3}
+  m_Name: Benteng A5
+  m_EditorClassIdentifier: 
+  acts:
+  - {fileID: 11400000, guid: eb706202c49a7254f9e9912df7a110fb, type: 2}
+  transitions:
+  - decide: {fileID: 11400000, guid: 88d1567f74afada44b60e07fe5166dad, type: 2}
+    trueS: {fileID: 11400000, guid: cbb52ef7c3a5c09479e830c2bf4317df, type: 2}
+    falseS: {fileID: 11400000}

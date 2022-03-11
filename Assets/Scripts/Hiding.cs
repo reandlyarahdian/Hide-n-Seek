@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Hiding : MonoBehaviour
 {
@@ -13,6 +14,7 @@ public class Hiding : MonoBehaviour
     [SerializeField]
     private Canvas canvas;
     private BasePooling @base;
+    private Coroutine getpos;
     private List<Vector3> posA = new List<Vector3>();
     private List<Vector3> posB = new List<Vector3>();
 
@@ -24,12 +26,26 @@ public class Hiding : MonoBehaviour
         }
         @base = FindObjectOfType<BasePooling>();
         canvas = GetComponentInChildren<Canvas>();
+        if (SceneManager.GetActiveScene().name == "Base2an")
+        {
+            if (getpos != null)
+            {
+                StopCoroutine(getpos);
+                getpos = StartCoroutine(getUpdate());
+            }
+        }
     }
 
-    private void Update()
+   IEnumerator getUpdate()
     {
-        GetPos(posA, "Seek");
-        GetPos(posB, "Hide");
+        while (true)
+        {
+            GetPos(posA, "Seek");
+            GetPos(posB, "Hide");
+
+            yield return null;
+        }
+        
     }
 
     public void Hunted(Material mat)

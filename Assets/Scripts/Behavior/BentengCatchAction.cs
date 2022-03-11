@@ -35,7 +35,7 @@ public class BentengCatchAction : Act
             }
             else
             {
-                movement.agent.SetDestination(new Vector3(TagCheck(BaseTag) * 4.5f, 0, TagCheck(BaseTag)));
+                movement.agent.SetDestination(new Vector3(TagCheck(BaseTag) / 9f, 0, TagCheck(BaseTag)));
             }
         }
     }
