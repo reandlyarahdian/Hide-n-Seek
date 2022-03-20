@@ -163,14 +163,14 @@ public class GameManager : MonoBehaviour
         switch (team)
         {
             case Team.TeamA:
-                Spawn(A, 25f, 2, null);
-                Spawn(PlayerA, 25f, 1, null);
-                Spawn(B, 25f, 3, null);
+                Spawn(A, 10f, 2, null);
+                Spawn(PlayerA, 10f, 1, null);
+                Spawn(B, 10f, 3, null);
                 break;
             case Team.TeamB:
-                Spawn(A, 25f, 3, null);
-                Spawn(B, 25f, 2, null);
-                Spawn(PlayerB, 25f, 1, null);
+                Spawn(A, 10f, 3, null);
+                Spawn(B, 10f, 2, null);
+                Spawn(PlayerB, 10f, 1, null);
                 break;
             default:
                 break;

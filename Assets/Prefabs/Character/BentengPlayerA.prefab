@@ -203,6 +203,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   STR: 10
+  STR0: 0
 --- !u!1 &162660909760801477
 GameObject:
   m_ObjectHideFlags: 0
@@ -215,7 +216,7 @@ GameObject:
   - component: {fileID: 475809807634025515}
   - component: {fileID: 8226665978941293835}
   - component: {fileID: 6127744280395107690}
-  m_Layer: 5
+  m_Layer: 8
   m_Name: Catch
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -347,7 +348,7 @@ GameObject:
   - component: {fileID: 4235592485639423602}
   - component: {fileID: 6316683968655467488}
   - component: {fileID: 3033630059384530128}
-  m_Layer: 5
+  m_Layer: 8
   m_Name: Teleport
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -478,7 +479,7 @@ GameObject:
   - component: {fileID: 4352569202832192530}
   - component: {fileID: 5169250229532586970}
   - component: {fileID: 2445458795383754073}
-  m_Layer: 9
+  m_Layer: 8
   m_Name: Quad
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -604,7 +605,7 @@ GameObject:
   - component: {fileID: 1109131738354928249}
   - component: {fileID: 6560389534921749160}
   - component: {fileID: 2670794092539348426}
-  m_Layer: 5
+  m_Layer: 8
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -704,7 +705,7 @@ GameObject:
   - component: {fileID: 3213529551611177789}
   - component: {fileID: 1766899600288704920}
   - component: {fileID: 6777494224670093097}
-  m_Layer: 5
+  m_Layer: 8
   m_Name: Canvas (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}

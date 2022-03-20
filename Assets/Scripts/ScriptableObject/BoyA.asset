@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 879c4b161ead0fc42bdee6dea3755e1c, type: 3}
+  m_Name: BoyA
+  m_EditorClassIdentifier: 
+  acts:
+  - {fileID: 11400000, guid: 8c99503a6be3b9a468d90b5352ea0afa, type: 2}
+  transitions:
+  - decide: {fileID: 11400000, guid: d1aaa4626f73e1d4c802bcdcb29057e3, type: 2}
+    trueS: {fileID: 11400000, guid: 86f2092d140b833479a11139caa148ad, type: 2}
+    falseS: {fileID: 11400000}

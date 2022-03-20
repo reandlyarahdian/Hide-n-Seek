@@ -38,6 +38,7 @@ public class UIManager : MonoBehaviour
         {
             TextMeshProUGUI textMesh = Instantiate(Points, pointPanel.transform);
             textMesh.text = $"Team {id[i]}: 0 Points";
+            text.Add(textMesh);
         }
     }
 

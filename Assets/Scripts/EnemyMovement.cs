@@ -31,6 +31,8 @@ public class EnemyMovement : MonoBehaviour
     public Hiding hiding;
     [HideInInspector]
     public int nextWayPoint;
+    public Transform ball;
+    public Transform stack;
     public int id;
 
     private bool AIActive;
@@ -68,11 +70,17 @@ public class EnemyMovement : MonoBehaviour
         if(other.CompareTag("Hide")) Target = other.transform;
         if (other.CompareTag("Seek")) Hide = other.transform;
         if (other.CompareTag(EnemyTag)) Target = other.transform;
+        if (other.CompareTag("Ball")) ball = other.transform;
+        if (other.CompareTag("Stack")) stack = other.transform;
     }
 
     private void OnTriggerExit(Collider other)
     {
-        Target = null;
+        if (other.CompareTag("Hide")) Target = null;
+        if (other.CompareTag("Seek")) Hide = null;
+        if (other.CompareTag(EnemyTag)) Target = null;
+        if (other.CompareTag("Ball")) ball = null;
+        if (other.CompareTag("Stack")) stack = null;
         colliders.Remove(other);
     }
 

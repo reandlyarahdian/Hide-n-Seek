@@ -309,6 +309,7 @@ GameObject:
   - component: {fileID: 182560274}
   - component: {fileID: 182560273}
   - component: {fileID: 182560277}
+  - component: {fileID: 182560276}
   m_Layer: 7
   m_Name: B
   m_TagString: B
@@ -393,6 +394,20 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 182560271}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &182560276
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 182560271}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cda2a796355e96345925654781ff8267, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  taging: B
+  enemyTaging: A
 --- !u!136 &182560277
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -403,7 +418,7 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_Enabled: 1
-  m_Radius: 1
+  m_Radius: 1.5
   m_Height: 1
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
@@ -988,7 +1003,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 684839606}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1, y: 0, z: 0}
+  m_LocalPosition: {x: -1, y: 0, z: 0}
   m_LocalScale: {x: 0.19424, y: 0.19424, z: 0.19424}
   m_Children: []
   m_Father: {fileID: 341279444}
@@ -1097,7 +1112,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 838975676}
   m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
-  m_LocalPosition: {x: -1, y: 0, z: 0}
+  m_LocalPosition: {x: 1, y: 0, z: 0}
   m_LocalScale: {x: 0.19424, y: 0.19424, z: 0.19424}
   m_Children: []
   m_Father: {fileID: 1847919720}
@@ -2979,6 +2994,7 @@ GameObject:
   - component: {fileID: 1489128471}
   - component: {fileID: 1489128470}
   - component: {fileID: 1489128474}
+  - component: {fileID: 1489128473}
   m_Layer: 7
   m_Name: A
   m_TagString: A
@@ -3063,6 +3079,20 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1489128468}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1489128473
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1489128468}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cda2a796355e96345925654781ff8267, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  taging: A
+  enemyTaging: B
 --- !u!136 &1489128474
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -3073,7 +3103,7 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_Enabled: 1
-  m_Radius: 1
+  m_Radius: 1.5
   m_Height: 1
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
