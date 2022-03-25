@@ -156,6 +156,8 @@ MonoBehaviour:
   transforms: []
   Player: 0000000000000000000000000000000000000000
   mode: 0
+  team: 0
+  Teams: 0000000000000000
   isPaused: 0
   Plane: {fileID: 1442068714}
   enemyChase: {fileID: 59088305702122318, guid: 3e7e696605713ba4a84c6c3408d4a6d7, type: 3}
@@ -164,6 +166,10 @@ MonoBehaviour:
   playerHide: {fileID: 59088305702122318, guid: 42a04289735595f45bb0ddd498dd059a, type: 3}
   coin: {fileID: 7821440017915566934, guid: d1851d1573d538e47bbb0a8affc710da, type: 3}
   obstacle: {fileID: 4069900854027579932, guid: d1c154db3ccc0eb439f7d15a5523a385, type: 3}
+  A: {fileID: 0}
+  B: {fileID: 0}
+  PlayerA: {fileID: 0}
+  PlayerB: {fileID: 0}
 --- !u!4 &8871765
 Transform:
   m_ObjectHideFlags: 0
@@ -2942,8 +2948,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0b85f36ec4b3554449fba4c2adc2fdff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TouchSensitivityX: 0.1
-  TouchSensitivityY: 0.1
+  TouchSensitivityX: 0.5
+  TouchSensitivityY: 0.5
   TouchXInputMapTo: Mouse X
   TouchYInputMapTo: Mouse Y
 --- !u!1 &1442068714

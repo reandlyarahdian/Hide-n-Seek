@@ -2529,8 +2529,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0b85f36ec4b3554449fba4c2adc2fdff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TouchSensitivityX: 0.1
-  TouchSensitivityY: 0.1
+  TouchSensitivityX: 0.5
+  TouchSensitivityY: 0.5
   TouchXInputMapTo: Mouse X
   TouchYInputMapTo: Mouse Y
 --- !u!1 &1442068714

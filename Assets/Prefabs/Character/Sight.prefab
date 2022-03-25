@@ -68,7 +68,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 9833ae0c306bb1a4b88bb08fb696bde0, type: 2}
+  - {fileID: 2100000, guid: 15dddb477412e384982c16e87dd4d319, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -156,17 +156,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   curentS: {fileID: 11400000, guid: b61314a78ceb64d428d371599404fa1c, type: 2}
   remainS: {fileID: 11400000, guid: 2ba7480289046a840a38834ae2fbaf02, type: 2}
+  EnemyTag: Hide
   wayPoints: []
   mask:
     serializedVersion: 2
     m_Bits: 4294967295
+  stamina: {fileID: 0}
   agent: {fileID: 0}
   light: {fileID: 0}
   Target: {fileID: 0}
   Hide: {fileID: 0}
   col: {fileID: 0}
   colliders: []
+  hiding: {fileID: 0}
   nextWayPoint: 0
+  ball: {fileID: 0}
+  stack: {fileID: 0}
   id: 0
 --- !u!114 &1891399346614927333
 MonoBehaviour:
@@ -181,6 +186,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 0
+  Team: 0
 --- !u!114 &1254142711486128967
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -262,7 +268,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 9833ae0c306bb1a4b88bb08fb696bde0, type: 2}
+  - {fileID: 2100000, guid: 15dddb477412e384982c16e87dd4d319, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

@@ -156,10 +156,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   curentS: {fileID: 11400000, guid: 986d8593928c4274db8a5ab8cb358fcb, type: 2}
   remainS: {fileID: 0}
+  EnemyTag: Hide
   wayPoints: []
   mask:
     serializedVersion: 2
     m_Bits: 4294967295
+  stamina: {fileID: 0}
   agent: {fileID: 0}
   light: {fileID: 0}
   Target: {fileID: 0}
@@ -168,6 +170,8 @@ MonoBehaviour:
   colliders: []
   hiding: {fileID: 0}
   nextWayPoint: 0
+  ball: {fileID: 0}
+  stack: {fileID: 0}
   id: 0
 --- !u!114 &1891399346614927333
 MonoBehaviour:
@@ -182,6 +186,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 0
+  Team: 0
 --- !u!114 &1254142711486128967
 MonoBehaviour:
   m_ObjectHideFlags: 0

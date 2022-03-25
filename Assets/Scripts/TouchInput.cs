@@ -4,8 +4,8 @@ using UnityStandardAssets.CrossPlatformInput;
 
 public class TouchInput : MonoBehaviour
 {
-    public float TouchSensitivityX = 1f;
-    public float TouchSensitivityY = 1f;
+    public float TouchSensitivityX = 0.1f;
+    public float TouchSensitivityY = 0.1f;
 
     public string TouchXInputMapTo = "Mouse X";
     public string TouchYInputMapTo = "Mouse Y";

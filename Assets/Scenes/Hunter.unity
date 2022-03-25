@@ -157,6 +157,7 @@ MonoBehaviour:
   Player: 0000000000000000000000000000000000000000
   mode: 0
   team: 0
+  Teams: 0000000000000000
   isPaused: 0
   Plane: {fileID: 1442068714}
   enemyChase: {fileID: 59088305702122318, guid: a6bbd561c975b964d99ff6d4068dbbea, type: 3}
@@ -2812,8 +2813,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0b85f36ec4b3554449fba4c2adc2fdff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TouchSensitivityX: 0.1
-  TouchSensitivityY: 0.1
+  TouchSensitivityX: 0.5
+  TouchSensitivityY: 0.5
   TouchXInputMapTo: Mouse X
   TouchYInputMapTo: Mouse Y
 --- !u!1 &1442068714
